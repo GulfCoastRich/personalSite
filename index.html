@@ -14,9 +14,24 @@
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/pages.css" />
-    <title>Rich's Portfolio</title>
+    <title>Rich Powell's Portfolio Site</title>
   </head>
   <body>
+    <!--Dark Mode toggle-->
+    <div class="theme-panel open">
+      <div class="theme-body">
+        <span>Change Theme</span>
+        <div class="btn-group">
+          <button data-toggle="light" class="toggle-btn active">Light</button>
+          <button data-toggle="dark" class="toggle-btn">Dark</button>
+        </div>
+        <button class="theme-tab">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+    </div>
+
+    <!--Main Content-->
     <main class="site-wrapper">
       <header class="site-header">
         <nav class="navbar">
@@ -26,13 +41,78 @@
           <div class="navbar-nav">
             <ul class="ul-default-none main-menu">
               <li class="nav-items">Home</li>
-              <li class="nav-items">About me</li>
-              <li class="nav-items">Contact</li>
+              <li class="nav-items" data-open="about">About me</li>
+              <li class="nav-items" data-open="contact">Contact</li>
             </ul>
           </div>
         </nav>
       </header>
+
+      <!-- Site Intro Section-->
+      <section class="intro-background">
+        <div class="container">
+          <div class="intro-content">
+            <div class="code-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h2 class="header-large">Code. Eat. Exercise. Sleep</h2>
+            <div class="sub-header">
+              I create meaningful solutions for your brands and products.
+              <br />
+              Give your customers the bst experience possible.
+            </div>
+            <div class="btn btn-primary round-pill">
+              <a href="#" data-open="contact">Let's talk now</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <!-- Modals -->
+    <!-- About Page Modal -->
+    <div
+      id="about"
+      class="full-site-modal page-block"
+      data-animation="zoomInOut"
+    >
+      <header class="modal-header">
+        <h3>ABOUT PAGE</h3>
+        <i class="fas fa-times" data-close></i>
+      </header>
+      <div class="modal-body">
+        <div class="img-wrapper">
+          <img src="./assets/images/headshot.png" />
+        </div>
+        <h2>Rich Powell</h2>
+        <p>text 1</p>
+        <p>text 2</p>
+        <div>
+          <div>Email Me:</div>
+          <a href="mailto:richardpowellofficial@yahoo.com"
+            >richardpowellofficial@yahoo.com</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div
+      id="contact"
+      class="full-site-modal page-block"
+      data-animation="zoomInOut"
+    >
+      <header class="modal-header">
+        <h3>CONTACT PAGE</h3>
+        <i class="fas fa-times" data-close></i>
+      </header>
+      <div class="modal-body">
+        <div class="img-wrapper">
+          <img src="./assets/images/headshot.png" />
+        </div>
+      </div>
+    </div>
+
     <script src="js/main.js"></script>
   </body>
 </html>
