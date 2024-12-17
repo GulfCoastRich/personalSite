@@ -7,12 +7,19 @@ const light = 'light';
 const open = 'open';
 const active = 'active';
 
-
 const modalOpen = "[data-open]";
 const modalClose = "[data-close]";
 const isVisible = 'is-visible';
 
+const dataFilter = "[data-filter]";
+const portfolioData = '[data-item]';
+
 const root = document.documentElement;
+
+/* Portfolio */
+const filterLink = document.querySelectorAll(dataFilter);
+const portfolioItems = document.querySelectorAll(portfolioData);
+const searchBox = document.querySelector('#search');
 
 /* Dark Mode Theme */
 const toggleTheme = document.querySelector(themeTab);
@@ -68,8 +75,33 @@ for(const el of toggle){
 }
 
 
+searchBox.addEventListener('keyup', (e) => {
+    const searchInput = e.target.value.toLowerCase().trim();
+    portfolioItems.forEach((card) => {
+        if(card.dataset.item.includes(searchInput)){
+            card.style.display = 'block';
+        }else{
+            card.style.display = 'none';
+        }
+    })
+    
+});
 
-
+for(const link of filterLink){
+    link.addEventListener('click', function() {
+        setActive(link, '.filter-link');
+        const filter = this.dataset.filter;
+        portfolioItems.forEach((card) => {
+            if(filter === 'all'){
+                card.style.display = 'block';
+            }else if(card.dataset.item === filter){
+                card.style.display = 'block';
+            }else{
+                card.style.display = 'none';
+            }
+        })
+    })
+}
 
 
 /* Modal */
