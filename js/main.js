@@ -108,7 +108,7 @@ for(const link of filterLink){
 const openModal = document.querySelectorAll(modalOpen);
 const closeModal = document.querySelectorAll(modalClose);
 
-//Full Site Modal "open buttons"
+//Modal/Full Site Modal "open buttons"
 for(const el of openModal){
     el.addEventListener('click', function() {
         const modalId = this.dataset.open;
@@ -117,11 +117,23 @@ for(const el of openModal){
 }
 
 
-//Full Site Modal "close buttons"
+//Modal/Full Site Modal "close buttons"
 for(const el of closeModal){
     el.addEventListener('click', function() {
-        this.parentElement.parentElement.classList.remove(isVisible);
+        this.parentElement.parentElement.parentElement.classList.remove(isVisible);
     });
 }
 
 
+//Modal
+document.addEventListener("click", (e) => {
+    if(e.target === document.querySelector('.modal.is-visible')){
+        document.querySelector(".modal.is-visible").classList.remove(isVisible);
+    }
+});
+
+document.addEventListener("keyup", (e) => {
+  if (e.key === 'Escape') {
+    document.querySelector(".modal.is-visible").classList.remove(isVisible);
+  }
+});
